@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sorting Visualizer</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="A Sorting Algorithms Visualizer">
+        <meta name="author" content="Dina Sergiu">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerdemo" aria-controls="navbarTogglerdemo" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerdemo">
+                <div id="separator-right" class="navbar-nav">
+                    <button id="generate-array" class="btn btn-outline-light my-2 my-sm-0" type="submit">Generate New Array</button>
+                </div>
+
+                <div id="left-space"></div>
+                <div id="navbar-text">Change Array Size & Sorting Speed</div>
+                <div id="add-right-padding" class="slidecontainer">
+                    <input type="range" min="10" max="100" value="50" class="slider" id="myRange">
+                </div>
+
+                <div id="navbarNav">
+                    <ul id="separator-left"class="navbar-nav">
+                        <li class="nav-item">
+                            <button id="bubble-sort" class="btn btn-outline-light my-2 my-sm-0" type="submit">Bubble Sort</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="insertion-sort" class="btn btn-outline-light my-2 my-sm-0" type="submit">Insertion Sort</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="selection-sort" class="btn btn-outline-light my-2 my-sm-0" type="submit">Selection Sort</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="quick-sort" class="btn btn-outline-light my-2 my-sm-0" type="submit">Quick Sort</button>
+                        </li>
+                        <li id="separator-right" class="nav-item">
+                            <button id="merge-sort" class="btn btn-outline-light my-2 my-sm-0" type="submit">Merge Sort</button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="sort" class="btn btn-outline-light my-2 my-sm-0" type="submit">Sort!</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <canvas id="arrayNumbers" width="1000" height="275"></canvas>
+        <div>
+        <div class="child" id="bubbleVisibility">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1/2"></div>
+                    <div class="col">
+                        <h1>Bubble Sort</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" id="col-border">
+                        Bubble Sort is a simple sorting algorithm that repeatedly steps through the
+                        list, compares adjacent elements and swaps them if they are in the
+                        wrong order.The pass through the list is repeated until the list
+                        is sorted. The algorithm, which is a comparison sort, is named for
+                        the way smaller or larger elements "bubble" to the top of the
+                        list. Although the algorithm is simple, it is too slow and
+                        impractical for most problems
+                    </div>
+                    <div class="col-6" id="col-padding">
+                        <div class="row">
+                            <div class="col-1/2"></div>
+                            <div class="col">
+                                <p id="performance-title">Performance</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Worst-case time complexity
+                            </div>
+                            <div class="col">
+                                O(n<sup>2</sup>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Average time complexity
+                            </div>
+                            <div class="col">
+                                O(n<sup>2</sup>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Best-case time complexity
+                            </div>
+                            <div class="col">
+                                O(n)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="child" id="insertionVisibility">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1/2"></div>
+                    <div class="col">
+                        <h1>Insertion Sort</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" id="col-border">
+                        Insertion Sort is a simple sorting algorithm that iterates through an array and
+                        at each iteration it removes one element from the array, finds the
+                        location it belongs to in the sorted list and inserts it there,
+                        repeating until no elements remain in the unsorted list. It is an
+                        in-place, stable sorting algorithm that is inefficient on large
+                        input arrays but works well for data sets that are almost sorted.
+                        It is more efficient in practice compared to other quadratic
+                        sorting algorithms like bubble sort and selection sort.
+                    </div>
+                    <div class="col-6" id="col-padding">
+                        <div class="row">
+                            <div class="col-1/2"></div>
+                            <div class="col">
+                                <p id="performance-title">Performance</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Worst-case time complexity
+                            </div>
+                            <div class="col">
+                                O(n<sup>2</sup>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Average time complexity
+                            </div>
+                            <div class="col">
+                                O(n<sup>2</sup>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Best-case time complexity
+                            </div>
+                            <div class="col">
+                                O(n)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="child" id="selectionVisibility">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1/2"></div>
+                    <div class="col">
+                        <h1>Selection Sort</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" id="col-border">
+                        Selection Sort is an in-place comparison sorting algorithm that divides the input
+                        list into two parts: the sublist of items already sorted, which is
+                        built up from left to right at the front (left) of the list, and
+                        the sublist of items remaining to be sorted that occupy the rest
+                        of the list. Initially, the sorted sublist is empty and the
+                        unsorted sublist is the entire input list. The algorithm proceeds
+                        by finding the smallest element in the unsorted sublist,
+                        exchanging (swapping) it with the leftmost unsorted element
+                        (putting it in sorted order), and moving the sublist boundaries
+                        one element to the right.
+                    </div>
+                    <div class="col-6" id="col-padding">
+                        <div class="row">
+                            <div class="col-1/2"></div>
+                            <div class="col">
+                                <p id="performance-title">Performance</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Worst-case time complexity
+                            </div>
+                            <div class="col">
+                                O(n<sup>2</sup>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Average time complexity
+                            </div>
+                            <div class="col">
+                                O(n<sup>2</sup>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Best-case time complexity
+                            </div>
+                            <div class="col">
+                                O(n<sup>2</sup>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="child" id="quickVisibility">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1/2"></div>
+                    <div class="col">
+                        <h1>Quick Sort</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" id="col-border">
+                        <p>
+                            Quick Sort is an efficient, in-place sorting algorith that in practice is
+                            faster than MergeSort and HeapSort. However, it is not a stable
+                            sorting algorithm, meaning that the relative positioning of
+                            equal sort items is not preserved.Quicksort is a divide and
+                            conquer algorithm. Quicksort first divides a large array into
+                            two smaller sub-arrays: the low elements and the high elements.
+                            Quicksort can then recursively sort the sub-arrays. The steps
+                            are:
+                        </p>
+                        <ol>
+                            <li>
+                              Pick an element, called a pivot, from the array. This is
+                              usually done at random.
+                            </li>
+                            <li>Move pivot element to the start of the array.</li>
+                            <li>
+                              <em>Partitioning:</em> reorder the array so that all elements
+                              with values less than the pivot come before the pivot, while
+                              all elements with values greater than the pivot come after it
+                              (equal values can go either way). After this partitioning, the
+                              pivot is in its final position. This is called the{' '}
+                              <em>partition</em> operation.
+                            </li>
+                            <li>
+                              Recursively apply the above steps to the sub-array of elements
+                              with smaller values and separately to the sub-array of
+                              elements with greater values.
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-6" id="col-padding">
+                        <div class="row">
+                            <div class="col-1/2"></div>
+                            <div class="col">
+                                <p id="performance-title">Performance</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Worst-case time complexity
+                            </div>
+                            <div class="col">
+                                O(<em>n</em><sup>2</sup>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Average time complexity
+                            </div>
+                            <div class="col">
+                                O(<em>n</em>log<em>n</em>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Best-case time complexity
+                            </div>
+                            <div class="col">
+                                O(<em>n</em>log<em>n</em>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="child" id="mergeVisibility">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1/2"></div>
+                    <div class="col">
+                        <h1>Merge Sort</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" id="col-border">
+                        <p>
+                            Merge Sort is an efficient, stable sorting algorith that makes use of the
+                            divide and conquer strategy. Conceptually the algorithm works as
+                            follows:
+                        </p>
+                        <ol>
+                            <li>
+                              Divide the unsorted list into <em>n</em> sublists, each
+                              containing one element(a list of one element is considered
+                              sorted)
+                            </li>
+                            <li>
+                              Repeatedly merge sublists to produce new sorted sublists until
+                              there is only one sublist remaining. This will be the sorted
+                              list.
+                            </li>
+                          </ol>
+                    </div>
+                    <div class="col-6" id="col-padding">
+                        <div class="row">
+                            <div class="col-1/2"></div>
+                            <div class="col">
+                                <p id="performance-title">Performance</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Worst-case time complexity
+                            </div>
+                            <div class="col">
+                                O(<em>n</em>log<em>n</em>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Average time complexity
+                            </div>
+                            <div class="col">
+                                O(<em>n</em>log<em>n</em>)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                Best-case time complexity
+                            </div>
+                            <div class="col">
+                                O(<em>n</em>log<em>n</em>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.2/dist/Chart.min.js"></script>
+        <script src=js/home.js></script>
+        <script src=js/Chart.js></script>
+    </body>
+</html>
