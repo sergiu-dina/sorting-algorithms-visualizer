@@ -1,1 +1,1 @@
-# sorting-algorithms-visualizer.github.io
+# sorting-algorithms-visualizer
